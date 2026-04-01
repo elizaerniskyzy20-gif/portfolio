@@ -543,55 +543,41 @@
 
         const contentData = {
             vizitka: {
-  title: "Визитка",
-  quote: "Тарых — бул келечектин күзгүсү.",
-  sidebar: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800",
+                title: "Визитка",
+                quote: "Тарых — бул келечектин күзгүсү.",
+                sidebar: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800",
+                categories: ["Байланыш", "YouTube", "Сүрөттөр"],
+                body: {
+                    "Байланыш": `
+<div style="display:flex; gap:40px; align-items:center;">
 
-  categories: ["Байланыш", "YouTube", "Сүрөттөр"],
+  <!-- ТЕКСТ -->
+  <div class="info-block">
+    <strong>Тел:</strong> +996 707 982 659<br>
+    <strong>Мектеп:</strong> А. Абдраимов мектеби<br>
+    <strong>Почта:</strong> elizaerniskyzy20@gmail.com<br>
+    <strong>Инстаграм:</strong> Eliza Ernisova
+  </div>
 
-  body: {
-    "Байланыш": `
-    <div style="
-      background-image: url('background.jpeg');
-      background-size: cover;
-      background-position: center;
-      padding: 40px;
-      border-radius: 20px;
-      color: white;
-    ">
+  <!-- СҮРӨТТӨР -->
+  <div style="position:relative;">
 
-      <div style="display:flex; gap:40px; align-items:center;">
+    <!-- ЧОҢ СҮРӨТ -->
+    <img src="vis.jpeg" width="260" style="border-radius:15px;">
 
-        <div style="background: rgba(0,0,0,0.4); padding:20px; border-radius:10px;">
-          <strong>Тел:</strong> +996 707 982 659<br>
-          <strong>Мектеп:</strong> А. Абдраимов мектеби<br>
-          <strong>Почта:</strong> elizaerniskyzy20@gmail.com<br>
-          <strong>Инстаграм:</strong> Eliza Ernisova
-        </div>
+    <!-- КИЧИНЕ СҮРӨТ -->
+    <img src="vis1.jpeg" width="120"
+         style="position:absolute; bottom:-20px; right:-20px;
+                border-radius:10px; border:3px solid white;">
 
-        <div style="position:relative;">
-          <img src="img1.jpeg" width="260" height="200"
-               style="object-fit:cover; border-radius:15px;">
+  </div>
 
-          <img src="img2.jpeg" width="120" height="90"
-               style="object-fit:cover;
-                      position:absolute;
-                      bottom:-15px;
-                      right:-15px;
-                      border-radius:10px;
-                      border:3px solid white;">
-        </div>
-
-      </div>
-
-    </div>
-    `,
-
-    "YouTube": generateYoutube("Менин видеолорум"),
-
-    "Сүрөттөр": `<h4>Визитка галереясы</h4>` + generateGallery(9)
-  }
-},
+</div>
+`,
+                    "YouTube": generateYoutube("Менин видеолорум"),
+                    "Сүрөттөр": `<h4>Визитка галереясы</h4>` + generateGallery(9)
+                }
+            },
             about: {
                 title: "Мен жөнүндө",
                 quote: "Өмүр — бул чоң сабак.",
