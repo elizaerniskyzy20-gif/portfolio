@@ -546,10 +546,11 @@
                 title: "Визитка",
                 quote: "Тарых — бул келечектин күзгүсү.",
                 sidebar: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800",
-                categories: ["Байланыш", "YouTube", "Сүрөттөр"],
-                body: {
-                    "Байланыш": `
-  <div style="
+               categories: ["Байланыш", "YouTube", "Сүрөттөр"],
+
+body: {
+  "Байланыш": `
+<div style="
   background-image: url('background.jpeg');
   background-size: cover;
   background-position: center;
@@ -593,9 +594,9 @@
 
 </div>
 `
-                    "YouTube": generateYoutube("Менин видеолорум"),
-                    "Сүрөттөр": `<h4>Визитка галереясы</h4>` + generateGallery(9)
-                }
+  "YouTube": generateYoutube("Менин видеолорум"),
+  "Сүрөттөр": `<h4>Визитка галереясы</h4>` + generateGallery(9)
+}
             },
             about: {
                 title: "Мен жөнүндө",
