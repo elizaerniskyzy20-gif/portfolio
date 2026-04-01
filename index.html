@@ -549,30 +549,50 @@
                 categories: ["Байланыш", "YouTube", "Сүрөттөр"],
                 body: {
                     "Байланыш": `
-<div style="display:flex; gap:40px; align-items:center;">
+<div style="
+  background-image: url('background.jpeg');
+  background-size: cover;
+  background-position: center;
+  padding: 40px;
+  border-radius: 20px;
+  color: white;
+">
 
-  <!-- ТЕКСТ -->
-  <div class="info-block">
-    <strong>Тел:</strong> +996 707 982 659<br>
-    <strong>Мектеп:</strong> А. Абдраимов мектеби<br>
-    <strong>Почта:</strong> elizaerniskyzy20@gmail.com<br>
-    <strong>Инстаграм:</strong> Eliza Ernisova
-  </div>
+  <div style="display:flex; gap:40px; align-items:center;">
 
-  <!-- СҮРӨТТӨР -->
-  <div style="position:relative;">
+    <!-- ТЕКСТ -->
+    <div style="
+      background: rgba(0,0,0,0.4);
+      padding:20px;
+      border-radius:10px;
+    ">
+      <strong>Тел:</strong> +996 707 982 659<br>
+      <strong>Мектеп:</strong> А. Абдраимов мектеби<br>
+      <strong>Почта:</strong> elizaerniskyzy20@gmail.com<br>
+      <strong>Инстаграм:</strong> Eliza Ernisova
+    </div>
 
-    <!-- ЧОҢ СҮРӨТ -->
-    <img src="vis.jpeg" width="260" style="border-radius:15px;">
+    <!-- СҮРӨТ БЛОК -->
+    <div style="position:relative;">
 
-    <!-- КИЧИНЕ СҮРӨТ -->
-    <img src="vis1.jpeg" width="120"
-         style="position:absolute; bottom:-20px; right:-20px;
-                border-radius:10px; border:3px solid white;">
+      <!-- ЧОҢ РАМКА -->
+      <img src="img1.jpeg" width="260" height="200"
+           style="object-fit:cover; border-radius:15px;">
+
+      <!-- КИЧИНЕ РАМКА -->
+      <img src="img2.jpeg" width="120" height="90"
+           style="object-fit:cover;
+                  position:absolute;
+                  bottom:-15px;
+                  right:-15px;
+                  border-radius:10px;
+                  border:3px solid white;">
+    </div>
 
   </div>
 
 </div>
+`
 `,
                     "YouTube": generateYoutube("Менин видеолорум"),
                     "Сүрөттөр": `<h4>Визитка галереясы</h4>` + generateGallery(9)
