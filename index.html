@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ky">
 <head>
+  <title>Менин сайт</title>
+
   <style>
   .pulse {
     animation: pulse 1.5s infinite;
@@ -18,6 +20,10 @@
 .gallery-item img:hover {
   transform: scale(1.05);
 }
+.gallery-item img:hover {
+  transform: scale(1.05);
+}
+
 .modal {
   display: none;
   position: fixed;
@@ -36,8 +42,9 @@
   max-height: 80%;
   border-radius: 15px;
 }
-  
+  }
   </style>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -524,7 +531,7 @@ function startSlider() {
             }
         }
 
-      function generateGallery(images) {
+       function generateGallery(images) {
   let html = '<div class="image-grid-3">';
   
   images.forEach(src => {
@@ -534,6 +541,10 @@ function startSlider() {
            style="width:100%; height:100%; object-fit:cover;">
     </div>`;
   });
+
+  html += '</div>';
+  return html;
+}
             html += '</div>';
             return html;
         }
@@ -743,11 +754,7 @@ function startSlider() {
   "o3.jpg",
   "o4.jpg"
 ])
-,
-"Билими": `<div class="info-block">Маалымат жазууга орун...</div>` + generateGallery([
-  "b1.jpg",
-  "b2.jpg"
-]),
+                    "Билими": `<div class="info-block">Маалымат жазууга орун...</div>` + generateGallery(5),
                     "Үй бүлө": `<div class="info-block">Маалымат жазууга орун...</div>` + generateGallery(5),
                     "Иш тажрыйба": `<div class="info-block">Маалымат жазууга орун...</div>` + generateGallery(5),
                     "Башка": `<div class="info-block">Маалымат жазууга орун...</div>` + generateGallery(5)
