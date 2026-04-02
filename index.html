@@ -27,6 +27,15 @@
             --gold: #b38728;
             --sepia: #5e3a1a;
             --light-bg: #fdfaf5;
+            @keyframes glowText {
+  0% { opacity: 1; text-shadow: 0 0 5px #b38728; }
+  50% { opacity: 0.5; text-shadow: 0 0 20px #b38728; }
+  100% { opacity: 1; text-shadow: 0 0 5px #b38728; }
+}
+
+.glow-text {
+  animation: glowText 2s infinite;
+}
         }
         body {
             font-family: 'Montserrat', sans-serif;
@@ -631,7 +640,7 @@
   <!-- СОЛ ЖАК ТЕКСТ -->
   <div style="flex:1; min-width:250px;">
 
-    <div class="info-block" style="font-size:16px; line-height:1.8; font-family:'Playfair Display';">
+    <div class="info-block glow-text" style="font-size:16px; line-height:1.8; font-family:'Playfair Display';">
       <h3 style="font-size:22px; font-weight:bold; margin-bottom:10px;">Мен жөнүндө</h3>
 
       Мен, Эрнис кызы Элиза, тарых мугалими катары эмгектенем.  
