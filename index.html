@@ -406,7 +406,7 @@
                 </div>
 
                 <div class="hidden lg:block">
-                    <img id="sidebar-img" src="" class="sidebar-image" alt="Бөлүм сүрөтү">
+                    <img id="sidebar-img" src="b.jpg" class="sidebar-image" alt="Бөлүм сүрөтү">
                 </div>
             </div>
         </div>
@@ -625,7 +625,14 @@
                 sidebar: "https://images.unsplash.com/photo-1491845339675-d22601ff4185?q=80&w=800",
                 categories: ["Өмүр баян", "Билими", "Үй бүлө", "Иш тажрыйба", "Башка"],
                 body: {
-                    "Өмүр баян": `<div class="info-block">Маалымат жазууга орун...</div>` + generateGallery(12),
+                    "Өмүр баян": `<div class="info-block">"Өмүр баян": `
+<div class="info-block fade-in" style="font-family: 'Playfair Display'; font-size:16px; line-height:1.7;">
+Мен, Эрнис кызы Элиза, тарых мугалими катары эмгектенем. 
+Окуучуларга тарыхты үйрөтүү менен бирге, аларды мекенчилдикке тарбиялоо — менин негизги максатым.
+
+Сабактарымды кызыктуу жана заманбап усулдар менен өткөрүүгө аракет кылам.
+</div>
+` + generateGallery(12),
                     "Билими": `<div class="info-block">Маалымат жазууга орун...</div>` + generateGallery(9),
                     "Үй бүлө": `<div class="info-block">Маалымат жазууга орун...</div>` + generateGallery(12),
                     "Иш тажрыйба": `<div class="info-block">Маалымат жазууга орун...</div>` + generateGallery(9),
