@@ -1093,34 +1093,99 @@ function startSlider() {}
 
          if (subCat === 'Иштелме') {
 
+    // АЧЫК САБАК
     if (currentTab === 'Ачык сабак') {
         content += `
-        <div class="https://youtu.be/pTDlfzQOHYs?feature=shared" onclick="window.open('achyk_sabak.docx')">
-            📄 Ачык сабак
-        </div>`;
+
+        <div class="youtube-link-box" onclick="window.open('achyk_sabak.docx')">
+            📄 Word файл
+        </div>
+
+        <div class="youtube-link-box" onclick="window.open('achyk_sabak.pptx')">
+            📊 Презентация
+        </div>
+
+        <iframe width="100%" height="250"
+            src="https://youtu.be/pTDlfzQOHYs?feature=shared"
+            frameborder="0" allowfullscreen></iframe>
+
+        <div class="youtube-link-box"
+            onclick="window.open('https://youtu.be/Vf9OmVC74tI')">
+            ▶️ Видео көрүү
+        </div>
+        `;
     }
 
+    // ТАРБИЯЛЫК СААТ
     else if (currentTab === 'Тарбиялык саат') {
         content += `
+
         <div class="youtube-link-box" onclick="window.open('tarb.docx')">
-            📄 Тарбиялык саат
-        </div>`;
+            📄 Word файл
+        </div>
+
+        <div class="youtube-link-box" onclick="window.open('tarb.pptx')">
+            📊 Презентация
+        </div>
+
+        <iframe width="100%" height="250"
+            src="https://www.youtube.com/embed/F_wl_ImXEJE"
+            frameborder="0" allowfullscreen></iframe>
+
+        <div class="youtube-link-box"
+            onclick="window.open('https://youtu.be/F_wl_ImXEJE')">
+            ▶️ Видео көрүү
+        </div>
+        `;
     }
 
+    // КӨРСӨТМӨЛҮҮ САБАК
     else if (currentTab === 'Көрсөтмөлүү сабак') {
         content += `
+
         <div class="youtube-link-box" onclick="window.open('korsotmo.docx')">
-            📄 Көрсөтмөлүү сабак
-        </div>`;
+            📄 Word файл
+        </div>
+
+        <div class="youtube-link-box" onclick="window.open('korsotmo.pptx')">
+            📊 Презентация
+        </div>
+
+        <iframe width="100%" height="250"
+            src="https://www.youtube.com/embed/Vf9OmVC74tI"
+            frameborder="0" allowfullscreen></iframe>
+
+        <div class="youtube-link-box"
+            onclick="window.open('https://youtu.be/Vf9OmVC74tI')">
+            ▶️ Видео көрүү
+        </div>
+        `;
     }
 
+    // КОШУМЧА САБАКТАР
     else if (currentTab === 'Кошумча сабактар') {
         content += `
+
         <div class="youtube-link-box" onclick="window.open('koshumcha.docx')">
-            📄 Кошумча сабактар
-        </div>`;
+            📄 Word файл
+        </div>
+
+        <div class="youtube-link-box" onclick="window.open('koshumcha.pptx')">
+            📊 Презентация
+        </div>
+
+        <iframe width="100%" height="250"
+            src="https://www.youtube.com/embed/F_wl_ImXEJE"
+            frameborder="0" allowfullscreen></iframe>
+
+        <div class="youtube-link-box"
+            onclick="window.open('https://youtu.be/F_wl_ImXEJE')">
+            ▶️ Видео көрүү
+        </div>
+        `;
     }
 
+}
 }
             content += generateYoutube(`${currentTab} видеосу`); 
             content += closeBtnHtml;
