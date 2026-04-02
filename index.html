@@ -572,7 +572,32 @@
 
 </div>
 `,
-                    "YouTube": generateYoutube("Менин видеолорум"),
+                    "YouTube":"YouTube": `
+<h3 style="font-size:18px; font-weight:bold; margin-bottom:10px;">
+Менин визиттик картам
+</h3>
+
+<!-- СҮРӨТ РАМКАДА -->
+<div class="photo-frame" style="width:300px; margin-bottom:20px;">
+  <img src="youtube.jpg"
+       style="width:100%; height:200px; object-fit:cover;">
+</div>
+
+<!-- ВИДЕОЛОР -->
+<div style="display:flex; flex-direction:column; gap:15px;">
+
+  <div class="youtube-link-box"
+       onclick="window.open('https://youtu.be/Vf9OmVC74tI', '_blank')">
+    ▶️ Видео 1 көрүү
+  </div>
+
+  <div class="youtube-link-box"
+       onclick="window.open('https://youtu.be/F_wl_ImXEJE', '_blank')">
+    ▶️ Видео 2 көрүү
+  </div>
+
+</div>
+`
                     "Сүрөттөр": `<h4>Визитка галереясы</h4>` + generateGallery(9)
                 }
             },
