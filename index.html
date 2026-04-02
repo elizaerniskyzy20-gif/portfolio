@@ -1,4 +1,766 @@
-body: {
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+  <title>Менин сайт</title>
+  
+  <style>
+  .pulse {
+    animation: pulse 1.5s infinite;
+  }
+  @keyframes pulse {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.2);}
+    100% {transform: scale(1);}
+}
+.gallery-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    cursor: pointer;
+}
+.gallery-item img:hover {
+  transform: scale(1.05);
+}
+.gallery-item img:hover {
+  transform: scale(1.05);
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal img {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 15px;
+  animation: zoomIn 0.4s ease;
+}
+    @keyframes zoomIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+  </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эрнис кызы Элиза | Портфолио V4.2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+    --gold: #b38728;
+    --sepia: #5e3a1a;
+    --light-bg: #fdfaf5;
+}
+@keyframes glowText {
+  0% { opacity: 1; text-shadow: 0 0 5px #b38728; }
+  50% { opacity: 0.5; text-shadow: 0 0 20px #b38728; }
+  100% { opacity: 1; text-shadow: 0 0 5px #b38728; }
+}
+
+.glow-text {
+  animation: glowText 2s infinite;
+}
+.glow-text {
+  animation: glowText 2s infinite;
+}
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light-bg);
+            color: #2d241e;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .animated-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: radial-gradient(circle at center, #fdfaf5 0%, #f7f1e3 100%);
+        }
+
+        .floating-icon {
+            position: absolute;
+            opacity: 0.1;
+            font-size: 40px;
+            pointer-events: none;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(100vw, 25vh) rotate(90deg); }
+            50% { transform: translate(50vw, 100vh) rotate(180deg); }
+            75% { transform: translate(-10vw, 50vh) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+
+        .hero-name {
+            background: linear-gradient(to right, #5e3a1a, #b38728, #5e3a1a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .featured-quote {
+            background: linear-gradient(135deg, #fffcf5 0%, #f7f1e3 100%);
+            border-left: 5px solid var(--gold);
+            padding: 20px;
+            border-radius: 0 15px 15px 0;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.03);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .nav-card {
+            background: white;
+            border: 1px solid #e2d1b0;
+            padding: 1rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: var(--gold);
+            box-shadow: 0 15px 30px rgba(179, 135, 40, 0.2);
+        }
+
+        .photo-frame {
+            padding: 12px;
+            background: white;
+            border: 1px solid #e2d1b0;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+            width: 320px; 
+        }
+
+        .section-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--light-bg);
+            z-index: 1000;
+            display: none;
+            overflow-y: auto;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .section-overlay.active { 
+            display: block; 
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .tab-transition {
+            animation: pageFlip 0.6s ease-out forwards;
+        }
+
+        @keyframes pageFlip {
+            0% { transform: rotateY(-10deg) translateX(30px); opacity: 0; }
+            100% { transform: rotateY(0deg) translateX(0); opacity: 1; }
+        }
+
+        .sidebar-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 8px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .category-tab {
+            padding: 8px 14px;
+            background: white;
+            border: 1px solid #e2d1b0;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 0 5px 5px 0;
+            font-size: 11px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .category-tab.active { background: var(--gold); color: white; border-color: var(--gold); }
+
+        .image-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+        .gallery-item {
+            aspect-ratio: 1/1;
+            background: #f9f6f0;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #eee1ca;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            color: #b38728;
+            transition: 0.3s;
+        }
+        
+        .gallery-item:hover { transform: scale(1.03); border-color: var(--gold); }
+
+        .youtube-link-box {
+            background: #fff5f5;
+            border: 1px solid #feb2b2;
+            padding: 12px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+            cursor: pointer;
+            color: #c53030;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .idea-container {
+            position: relative; height: 200px; width: 100%;
+            background: white; border: 1px solid #e2d1b0; border-radius: 15px;
+            overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding-bottom: 15px;
+        }
+
+        .cloud-container {
+            position: absolute;
+            top: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .cloud { font-size: 45px; }
+        .cloud-text { font-size: 10px; font-weight: bold; color: var(--gold); margin-top: -5px; }
+
+        .rain-drop { position: absolute; top: 50px; color: #3498db; animation: fall 0.8s linear forwards; }
+        @keyframes fall { to { transform: translateY(100px); opacity: 0; } }
+        #tree-visual { font-size: 35px; transition: 1s ease; transform-origin: bottom; }
+
+        .info-block {
+            background: #fffdf9;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .sub-navigation {
+            display: grid;
+            grid-template-cols: repeat(2, 1fr);
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .sub-nav-btn {
+            background: #f3f3f3;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: 0.2s;
+        }
+
+        .sub-nav-btn.active {
+            background: #5e3a1a;
+            color: white;
+        }
+
+        .tab-right-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 4px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin-bottom: 15px;
+        }
+
+        .section-quote-box {
+            font-style: italic;
+            color: #8c6d46;
+            border-left: 3px solid #e2d1b0;
+            padding-left: 15px;
+            margin: 15px 0;
+            font-size: 0.95rem;
+        }
+
+        .quiz-option {
+            padding: 12px;
+            margin-bottom: 8px;
+            border: 1px solid #e2d1b0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 14px;
+        }
+        .quiz-option:hover { background: #fdf5e6; border-color: var(--gold); }
+        .quiz-option.correct { background: #d1fae5; border-color: #10b981; animation: pulse 0.5s; }
+        .quiz-option.wrong { background: #fee2e2; border-color: #ef4444; }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .game-card {
+            background: #fff;
+            border: 1px solid #e2d1b0;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            cursor: pointer;
+        }
+        .game-card:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-color: var(--gold); }
+        
+        .close-btn {
+            background: #5e3a1a;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            margin-top: 30px;
+            display: inline-block;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .close-btn:hover { background: #b38728; }
+    </style>
+</head>
+<body>
+
+    <div class="animated-bg" id="bg-container"></div>
+
+    <main class="min-h-screen flex items-center justify-center p-6 relative z-10">
+        <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            
+            <div class="space-y-6 order-2 lg:order-1">
+                <div>
+                    <h1 class="text-5xl font-bold hero-name">Эрнис кызы Элиза</h1>
+                    <p class="text-sepia font-bold text-sm mt-1">Асаналы Абдраимов атындагы жалпы билим берүү мектеби</p>
+                    <p class="text-gold font-bold uppercase tracking-widest text-xs">Тарых мугалими 4 жылдык стажы</p>
+                </div>
+
+                <div class="featured-quote">
+                    <span class="text-4xl text-gold opacity-30 font-serif absolute -mt-4 -ml-2">“</span>
+                    <p class="italic text-gray-800">
+                        Тарых — бул келечектин күзгүсү, аны таза кармоо ар бир мугалимдин ыйык милдети. 
+                        Биз өткөндү үйрөтүү менен, эртеңки күндүн баатырларын тарбиялайбыз.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-3 gap-3">
+                    <div onclick="showSection('vizitka')" class="nav-card">
+                        <span class="text-2xl mb-1">📇</span>
+                        <span class="text-[10px] font-bold uppercase">Визитка видео</span>
+                    </div>
+                    <div onclick="showSection('about')" class="nav-card">
+                        <span class="text-2xl mb-1">🌿</span>
+                        <span class="text-[10px] font-bold uppercase">Мен жөнүндө </span>
+                    </div>
+                    <div onclick="showSection('case')" class="nav-card">
+                        <span class="text-2xl mb-1">📂</span>
+                        <span class="text-[10px] font-bold uppercase">Кейс методикалык көрсөтмө</span>
+                    </div>
+                    <div onclick="showSection('lessons')" class="nav-card">
+                        <span class="text-2xl mb-1">📖</span>
+                        <span class="text-[10px] font-bold uppercase">Сабактар</span>
+                    </div>
+                    <div onclick="showSection('achievements')" class="nav-card">
+                        <span class="text-2xl mb-1">📜</span>
+                        <span class="text-[10px] font-bold uppercase">Ийгиликтер</span>
+                    </div>
+                    <div onclick="showSection('game')" class="nav-card bg-amber-50">
+                        <span class="text-2xl mb-1">🎮</span>
+                        <span class="text-[10px] font-bold uppercase">Оюндар</span>
+                    </div>
+                </div>
+
+                <div onclick="showSection('docs')" class="nav-card w-full border-dashed flex-row space-x-4">
+                    <span class="text-2xl">⚖️</span>
+                    <span class="text-[10px] font-bold uppercase">Ченемдик документтер</span>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center order-1 lg:order-2 space-y-6">
+                <div class="photo-frame rounded-xl">
+  <img src="eliza1.jpeg" class="pulse" width="300">
+  <video width="300" autoplay muted loop playsinline>
+    <source src="eliza2.mp4" type="video/mp4">
+  </video>
+</div>
+                <div class="w-full max-w-xs">
+                    <div class="idea-container shadow-sm">
+                        <div class="cloud-container" onclick="makeItRain()">
+                            <div class="cloud">☁️</div>
+                            <span class="cloud-text">Булутту бас!үч жолу</span>
+                        </div>
+                        <div id="tree-visual">🌱</div>
+                        <p class="text-[9px] italic text-center px-4 mb-2">«Мугалим — жамгыр. Билим — байтерек.»</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="overlay" class="section-overlay">
+        <div class="max-w-6xl mx-auto">
+            <button class="mb-4 bg-stone-800 text-white px-6 py-2 rounded-lg hover:bg-sepia transition-all" onclick="hideSection()">← Артка</button>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="lg:col-span-2">
+                    <h2 id="overlay-title" class="text-3xl font-bold text-sepia mb-2"></h2>
+                    <p id="overlay-quote" class="italic text-gold mb-6 border-l-2 border-gold pl-4 text-sm"></p>
+                    
+                    <div id="overlay-tabs" class="flex flex-wrap mb-6"></div>
+                    
+                    <div id="sub-nav-container" class="sub-navigation hidden"></div>
+
+                    <div id="tab-content" class="bg-white p-6 rounded-2xl border border-stone-100 shadow-sm min-h-[400px]"></div>
+                </div>
+
+                <div class="hidden lg:block">
+                    <img id="sidebar-img" src="b.jpg" class="sidebar-image" alt="Бөлүм сүрөтү">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        function playClickSound() {
+            const oscillator = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(440, audioCtx.currentTime);
+            gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
+            oscillator.start();
+            oscillator.stop(audioCtx.currentTime + 0.1);
+        }
+     function openModal(src) {
+  const modal = document.getElementById('imageModal');
+  const img = document.getElementById('modalImg');
+
+  img.src = src;
+  modal.style.display = 'flex';
+
+  // 2 секунддан кийин автоматтык жабылат
+  setTimeout(() => {
+    modal.style.display = 'none';
+  }, 2000);
+}
+
+function closeModal() {
+  document.getElementById('imageModal').style.display = 'none';
+}
+
+let sliderInterval;
+
+function startSlider() {}
+        const bgContainer = document.getElementById('bg-container');
+        const icons = ['🏺', '📜', '🏹', '🏯', '⚔️', '🛡️', '👑', '🗿'];
+        for(let i=0; i<15; i++) {
+            const el = document.createElement('div');
+            el.className = 'floating-icon';
+            el.innerText = icons[Math.floor(Math.random() * icons.length)];
+            el.style.left = Math.random() * 100 + 'vw';
+            el.style.top = Math.random() * 100 + 'vh';
+            el.style.animationDuration = (15 + Math.random() * 20) + 's';
+            el.style.animationDelay = (Math.random() * -20) + 's';
+            bgContainer.appendChild(el);
+        }
+
+        let currentSection = '';
+        let currentTab = '';
+        let treeStage = 0;
+        const stages = ['🌱', '🌿', '🌳', '🌲', '🌳✨'];
+        
+        function makeItRain() {
+            const container = document.querySelector('.idea-container');
+            for(let i=0; i<10; i++) {
+                setTimeout(() => {
+                    const drop = document.createElement('div');
+                    drop.className = 'rain-drop';
+                    drop.innerText = '💧';
+                    drop.style.left = (40 + Math.random() * 20) + '%';
+                    container.appendChild(drop);
+                    setTimeout(() => drop.remove(), 800);
+                }, i * 100);
+            }
+            if(treeStage < stages.length - 1) {
+                treeStage++;
+                const tree = document.getElementById('tree-visual');
+                tree.innerText = stages[treeStage];
+                tree.style.transform = `scale(${1 + (treeStage * 0.2)})`;
+            }
+        }
+
+       function generateGallery(prefix, count) {
+    let html = '<div class="image-grid-2">';
+    for(let i=1; i<=count; i++) {
+        html += `
+        <div class="gallery-item">
+          <img src="${prefix}${i}.jpg"
+               onclick="openModal(this.src)"
+               style="width:100%; height:100%; object-fit:cover;">
+        </div>`;
+    }
+    html += '</div>';
+    return html;
+}
+
+        function generateYoutube(text) {
+            return `<div class="youtube-link-box" onclick="window.open('https://youtube.com', '_blank')">
+                <span class="text-xl">▶️</span>
+                <span>${text} (YouTube видеону көрүү)</span>
+            </div>`;
+        }
+
+        const tabQuotes = {
+            "Байланыш": "Байланыш — бул билимдин көпүрөсү.",
+            "Өмүр баян": "Ар бир өмүр — жазылбаган тарых.",
+            "Методикалык тарых": "Мугалимдин методу — бул анын куралы.",
+            "Ачык сабак": "Сабак — бул чыгармачылыктын туу чокусу.",
+            "Сыйлыктар": "Эмгектин баасы — элдин алкышы.",
+            "Викторина": "Билимдүүгө дүйнө жарык.",
+            "Закон": "Тартип бар жерде, өсүү бар."
+        };
+
+        const quizzes = {
+            "Викторина": [
+                { q: "Кыргыз Республикасынын Мамлекеттик герби качан кабыл алынган?", a: ["1994-ж. 14-январь", "1992-ж. 3-март", "1991-ж. 31-август"], c: 0 },
+                { q: "Барсбек каган кайсы мамлекеттин башкаруучусу болгон?", a: ["Кыргыз кагандыгы", "Түрк кагандыгы", "Уйгур кагандыгы"], c: 0 },
+                { q: "Манас эпосунун 1000 жылдыгы качан белгиленген?", a: ["1995-жылы", "2000-жылы", "1991-жылы"], c: 0 },
+                { q: "Кыргызстандын биринчи президенти ким болгон?", a: ["А. Акаев", "К. Бакиев", "Р. Отунбаева"], c: 0 },
+                { q: "Кыргызстан БУУга качан мүчө болгон?", a: ["1992-ж. 2-март", "1991-ж. 31-август", "1993-ж. 5-май"], c: 0 }
+            ],
+            "Сүрөт-суроо": [
+                { q: "Бул тарыхый инсан 'Алай ханышасы' аталган:", a: ["Курманжан Датка", "Каныкей", "Айчүрөк"], c: 0, img: "https://images.unsplash.com/photo-1580130281216-33b47f05f8c3?q=80&w=300" },
+                { q: "Орто кылымдагы бул мунара Чүй өрөөнүндө жайгашкан:", a: ["Бурана", "Өзгөн мунарасы", "Шах-Фазиль"], c: 0, img: "https://images.unsplash.com/photo-1590076034114-666324884277?q=80&w=300" },
+                { q: "Бул белгилүү жазуучу 'Кылым карытар бир күн' чыгармасын жазган:", a: ["Ч. Айтматов", "Т. Касымбеков", "А. Осмонов"], c: 0, img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=300" },
+                { q: "Бул улуттук баш кийим ак тилектин символу:", a: ["Ак калпак", "Тебетей", "Элечек"], c: 0, img: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=300" },
+                { q: "Бул тарыхый эстелик Талас жергесинде жайгашкан:", a: ["Манас күмбөзү", "Таш-Рабат", "Саймалуу-Таш"], c: 0, img: "https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=300" }
+            ],
+            "Терминдер": [
+                { q: "Бийликтин бир адамдын колунда чектелбестен топтолушу:", a: ["Демократия", "Диктатура", "Республика"], c: 1 },
+                { q: "Тарыхый окуялардын убакыт боюнча тизмеги:", a: ["География", "Хронология", "Археология"], c: 1 },
+                { q: "Мамлекеттин эң жогорку мыйзамы:", a: ["Декларация", "Конституция", "Кодекс"], c: 1 },
+                { q: "Байыркы Грециядагы шаар-мамлекет:", a: ["Полис", "Метрополия", "Колония"], c: 0 },
+                { q: "Калктын санын каттоо:", a: ["Демография", "Перепись", "Мониторинг"], c: 1 }
+            ],
+            "Хронология": [
+                { q: "Улуу Ата Мекендик согуш кайсы жылы башталган?", a: ["1939", "1941", "1945"], c: 1 },
+                { q: "Кыргызстан эгемендүүлүгүн качан жарыялаган?", a: ["1990", "1991", "1992"], c: 1 },
+                { q: "Экинчи дүйнөлүк согуш качан аяктаган?", a: ["1944", "1945", "1946"], c: 1 },
+                { q: "Кыргыз сому качан киргизилген?", a: ["1993", "1994", "1995"], c: 0 },
+                { q: "Октябрь революциясы кайсы жылы болгон?", a: ["1905", "1917", "1924"], c: 1 }
+            ],
+            "Ребустар": [
+                { q: "Т + 🐝 (аары) = ?", a: ["Тарых", "Төрт", "Тарак"], c: 0 },
+                { q: "Кан + Т = ?", a: ["Кант", "Кана", "Канда"], c: 0 },
+                { q: "Бал + А = ?", a: ["Бала", "Балка", "Бал"], c: 0 },
+                { q: "Шаар + К = ?", a: ["Шарк", "Шаар", "Шар"], c: 0 },
+                { q: "Жер + К = ?", a: ["Жерк", "Жер", "Желе"], c: 0 }
+            ]
+        };
+
+        let quizIndex = 0;
+        let activeQuizType = "";
+
+        const contentData = {
+            vizitka: {
+                title: "Визитка",
+                quote: "Тарых — бул келечектин күзгүсү.",
+                sidebar: "fon.jpg",
+                categories: ["Байланыш", "YouTube", "Сүрөттөр"],
+                body: {
+                    "Байланыш": `
+<div style="display:flex; gap:40px; align-items:center;">
+
+  <!-- ТЕКСТ -->
+  <div class="info-block">
+    <strong>Тел:</strong> +996 707 982 659<br>
+    <strong>Мектеп:</strong> А. Абдраимов атындагы жалпы билим берүү мектеби<br>
+    <strong>Почта:</strong> elizaerniskyzy20@gmail.com<br>
+    <strong>Инстаграм:</strong> Eliza Ernisova
+  </div>
+
+  <!-- РАМКАЛАР -->
+  <div style="position:relative;">
+
+    <!-- ЧОҢ РАМКА -->
+    <div class="photo-frame">
+      <img src="vis.jpeg"
+           style="width:100%; height:100%; object-fit:cover;">
+    </div>
+
+    <!-- КИЧИНЕ РАМКА -->
+    <div style="width:120px; height:90px;
+                position:absolute; bottom:-20px; right:-20px;"
+         class="photo-frame">
+
+      <img src="vis1.jpeg"
+           style="width:100%; height:100%; object-fit:cover;">
+    </div>
+
+  </div>
+
+</div>
+`,
+                 "YouTube": `
+<h3 style="font-size:18px; font-weight:bold;">
+Менин визиттик картам
+</h3>
+
+<div class="photo-frame" style="width:300px; margin:15px 0;">
+  <img src="vis.jpeg" style="width:100%; height:200px; object-fit:cover;">
+</div>
+
+<div style="display:flex; flex-direction:column; gap:10px;">
+
+  <div class="youtube-link-box" onclick="window.open('https://youtu.be/Vf9OmVC74tI')">
+    ▶️ Видео 1
+  </div>
+
+  <div class="youtube-link-box" onclick="window.open('https://youtu.be/F_wl_ImXEJE')">
+    ▶️ Видео 2
+  </div>
+
+</div>
+`,
+                    "Сүрөттөр": `
+<h4>Менин сүрөттөрүм</h4>
+
+<div style="
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:10px;
+  margin-top:15px;
+">
+
+  <img src="sur.jpg" style="width:100%; height:150px; object-fit:cover; border-radius:10px;">
+  <img src="sur1.jpg" style="width:100%; height:150px; object-fit:cover; border-radius:10px;">
+  <img src="sur2.jpg" style="width:100%; height:150px; object-fit:cover; border-radius:10px;">
+
+  <img src="sur3.jpg" style="width:100%; height:150px; object-fit:cover; border-radius:10px;">
+  <img src="sur4.jpg" style="width:100%; height:150px; object-fit:cover; border-radius:10px;">
+  <img src="sur5.jpg" style="width:100%; height:150px; object-fit:cover; border-radius:10px;">
+
+  <img src="sur6.jpg" style="width:100%; height:150px; object-fit:cover; border-radius:10px;">
+  <img src="sur7.jpg" style="width:100%; height:150px; object-fit:cover; border-radius:10px;">
+  <img src="sur8.jpg" style="width:100%; height:150px; object-fit:cover; border-radius:10px;">
+
+</div>
+`
+                }
+            },
+            about: {
+                title: "Мен жөнүндө",
+                quote: "Өмүр — бул чоң сабак.",
+                sidebar: "b.jpg",
+                categories: ["Өмүр баян", "Билими", "Үй бүлө", "Иш тажрыйба", "Башка"],
+                body: {
+                  "Өмүр баян": `
+<div style="display:flex; gap:30px; align-items:flex-start; flex-wrap:wrap;">
+
+  <!-- СОЛ ЖАК ТЕКСТ -->
+  <div style="flex:1; min-width:250px;">
+
+    <div class="info-block glow-text" style="font-size:16px; line-height:1.8; font-family:'Playfair Display';">
+      <h3 style="font-size:22px; font-weight:bold; margin-bottom:10px;">Мен жөнүндө</h3>
+
+      Мен, Эрнис кызы Элиза, тарых мугалими катары эмгектенем.  
+      Окуучуларга тарыхты үйрөтүү менен бирге, аларды мекенчилдикке тарбиялоо — менин негизги максатым.  
+
+      Сабактарымды заманбап технологияларды колдонуу менен кызыктуу өткөрүүгө аракет кылам.
+    </div>
+
+    <!-- КОШУМЧА БЛОК -->
+    <div class="info-block" style="margin-top:15px;">
+      📍 Мен эрнис кызы Элиза 15-ноябрь 1996-жылы Нарын облусунун Ак -Талаа районундагы Ак-Кыя Көк-Жар айылында  жарык дүйнөгө келгем.Атам Мамытов Эрнис апам Акматжанова Аида.5 бир тууган 3 кыз 2 эркек.Мен үйдүн экинчисимин.1-сентябрь 
+      2004-жылы Ак-Кыя айылындагы А.Абдраимов атындагы орто мектебинде 1-класска киргем.2015-жылы жалпы орто билим алып аттестатка ээ болгом.
+      2016-жылы Нарын шаарындагы Нарын мамлекеттик Университетинин педагогика факультетине тапшырып 2020-жылы аяктадым.
+      2022-жылы 1-сентябрынан тартып эмгек жолумду ушул эле Ак -Кыя айылындагы Асаналы Абдраимов атындагы орто мектебине тарых адистиги менен баштадым.
+      2015-жылы турмушка чыгып азыркы учурда 3 баланын ата-энесибиз.Жолдошум Чолпонбаев Нурсултан жеке ишкер.
+    </div>
+
+  </div>
+
+  <!-- ОҢ ЖАК СҮРӨТ -->
+  <div style="position:relative; width:250px;">
+
+    <!-- ЧОҢ СҮРӨТ -->
+    <img src="sur9.jpg"
+         style="width:100%; height:300px; object-fit:cover; border-radius:15px; box-shadow:0 10px 25px rgba(0,0,0,0.2);">
+
+    <!-- КИЧИНЕ СҮРӨТ -->
+    <img src="b1.jpg"
+         style="width:120px; height:90px; object-fit:cover;
+                position:absolute; bottom:-20px; right:-20px;
+                border-radius:10px; border:4px solid white;">
+  </div>
+
+</div>
+
+<!-- АНИМАЦИЯЛУУ ЦИТАТА -->
+<div style="margin-top:25px; padding:15px; border-left:5px solid gold; font-style:italic; animation:pulse 2s infinite;">
+  “Мугалим — бул келечекти жаратуучу инсан.”
+</div>
+
+` + generateGallery(12),
+                    "Билими": `<div class="info-block">Мен 2016-жылы Нарын шаарындагы С.Нааматов атындагы НАРЫН МАМЛЕКЕТТИК университетине тапшырып
+                                                        "Социалдык-экономикалык билим берүү багыты боюнча  2020-жылы бакалаврды аяктадым...</div>` + generateGallery("s", 6),
+                    "Үй бүлө": `<div class="info-block">Мен 20215-жылы Чолпонбев Нурсултан экөөбүз баш кошуп.Азыркы учурда 3 кыз 1 уулду тарбиялап жатабыз...</div>` + generateGallery("O", 6),
+                    "Иш тажрыйба": `<div class="info-block">2022-жылы Асаналы Абдраимов атындагы орто мектебине тарых мугалими болуп жумушка орноштум.Азыркы учурда да ушул жакта эмгектенип жатам...</div>` +generateGallery("J", 6),
+                    "Башка": `<div class="info-block">Ар кандай иш-чараларда жана күнүмдүк жашоодогу чырк этмелер...</div>` + generateGallery("t", 6),
+                }
+            },
+            case: {
+                title: "Методикалык Кейс",
+                quote: "Окутуу — бул эки жолу үйрөнүү.",
+                sidebar: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800",
+                categories: ["Методикалык тарых", "Колдонмолор", "Көрсөтмө куралдар", "Санариптик кошумча"]
+            },
+          
+              body: {
 
 "Методикалык тарых": `
 <h3>Методикалык тарых</h3>
@@ -20,10 +782,10 @@ body: {
 
 <h4>Сүрөттөр:</h4>
 <div class="image-grid-2">
-  <img src="m1.jpg" onclick="openModal(this.src)">
-  <img src="m2.jpg" onclick="openModal(this.src)">
-  <img src="m3.jpg" onclick="openModal(this.src)">
-  <img src="m4.jpg" onclick="openModal(this.src)">
+  <img src="h1.jpg" onclick="openModal(this.src)">
+  <img src="h2.jpg" onclick="openModal(this.src)">
+  <img src="h3.jpg" onclick="openModal(this.src)">
+  <img src="h4.jpg" onclick="openModal(this.src)">
 </div>
 `,
 
@@ -43,10 +805,10 @@ body: {
 </div>
 
 <div class="image-grid-2">
-  <img src="k1.jpg">
-  <img src="k2.jpg">
-  <img src="k3.jpg">
-  <img src="k4.jpg">
+  <img src="ap1.jpg">
+  <img src="ap2.jpg">
+  <img src="ap3.jpg">
+  <img src="ap4.jpg">
 </div>
 `,
 
@@ -97,3 +859,224 @@ body: {
 `
 
 }
+            },
+            lessons: {
+                title: "Сабактар",
+                quote: "Билим — түгөнбөс кенч.",
+                sidebar: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800",
+                categories: ["Ачык сабак", "Тарбиялык саат", "Көрсөтмөлүү сабак", "Кошумча сабактар"],
+                subCategories: ["Иштелме", "Чакыруу", "Презентация", "Сүрөттөр"],
+                body: {}
+            },
+            achievements: {
+                title: "Ийгиликтер",
+                quote: "Сыйлык — эмгектин натыйжасы.",
+                sidebar: "https://images.unsplash.com/photo-1579975096649-e773152b04cb?q=80&w=800",
+                categories: ["Сыйлыктар", "Конкурс", "Квалификация", "Кошумча окуу", "Курс"],
+                body: {
+                    "Сыйлыктар": `<div class="info-block">Мамлекеттик жана мектеп ичиндеги сыйлыктар.</div>` + generateGallery("a", 6),
+                    "Конкурс": `<div class="info-block">Катышкан конкурстар жана жетишкендиктер.</div>` + generateGallery("b", 6),
+                    "Квалификация": `<div class="info-block">Квалификацияны жогорулатуу документтери.</div>` +generateGallery("t", 6),
+                    "Кошумча окуу": `<div class="info-block">Түркүн багыттагы кошумча билим алуулар.</div>` + generateGallery("u", 6),
+                    "Курс": `<div class="info-block">Атайын методикалык жана санариптик курстар.</div>` + generateGallery("f", 6)
+                }
+            },
+            docs: {
+                title: "Ченемдик документтер",
+                quote: "Мыйзам — тартиптин негизи.",
+                sidebar: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=800",
+                categories: ["Закон", "Стандарт", "Сунуш", "Арыз", "Башка"],
+                body: {
+                    "Закон": `<div class="info-block">КР ченемдик-укуктук актылары жана мыйзамдары.</div>` + generateGallery(3),
+                    "Стандарт": `<div class="info-block">Билим берүү стандарттары жана талаптары.</div>` + generateGallery(3),
+                    "Сунуш": `<div class="info-block">Методикалык сунуштар жана көрсөтмөлөр.</div>` + generateGallery(3),
+                    "Арыз": `<div class="info-block">Арыздардын жана билдирүүлөрдүн үлгүлөрү.</div>` + generateGallery(3),
+                    "Башка": `<div class="info-block">Башка кошумча ченемдик документтер.</div>` + generateGallery(6)
+                }
+            },
+            game: {
+                title: "Оюндар",
+                quote: "Санариптик тарых дүйнөсү!",
+                sidebar: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=800",
+                categories: ["Викторина", "Сүрөт-суроо", "Терминдер", "Хронология", "Ребустар"],
+                body: {
+                    "Викторина": `<div id="game-area-Викторина" class="text-center"><div class="info-block" id="quiz-question-Викторина">Даярсызбы? Ар бир оюн 5 суроодон турат.</div><div id="quiz-options-Викторина"></div><button onclick="startQuiz('Викторина')" class="bg-gold text-white px-8 py-3 rounded-xl">Баштоо</button></div>`,
+                    "Сүрөт-суроо": `<div id="game-area-Сүрөт-суроо" class="text-center"><div class="info-block" id="quiz-question-Сүрөт-суроо">Сүрөттү көрүп тапкыла!</div><div id="quiz-options-Сүрөт-суроо"></div><button onclick="startQuiz('Сүрөт-суроо')" class="bg-gold text-white px-8 py-3 rounded-xl">Баштоо</button></div>`,
+                    "Терминдер": `<div id="game-area-Терминдер" class="text-center"><div class="info-block" id="quiz-question-Терминдер">Тарыхый терминдерди канчалык билесиз?</div><div id="quiz-options-Терминдер"></div><button onclick="startQuiz('Терминдер')" class="bg-gold text-white px-8 py-3 rounded-xl">Баштоо</button></div>`,
+                    "Хронология": `<div id="game-area-Хронология" class="text-center"><div class="info-block" id="quiz-question-Хронология">Окуялардын даталарын тапкыла.</div><div id="quiz-options-Хронология"></div><button onclick="startQuiz('Хронология')" class="bg-gold text-white px-8 py-3 rounded-xl">Баштоо</button></div>`,
+                    "Ребустар": `<div id="game-area-Ребустар" class="text-center"><div class="info-block" id="quiz-question-Ребустар">Логикалык ребустарды чечиңиз.</div><div id="quiz-options-Ребустар"></div><button onclick="startQuiz('Ребустар')" class="bg-gold text-white px-8 py-3 rounded-xl">Баштоо</button></div>`
+                }
+            }
+        };
+
+        function startQuiz(type) {
+            playClickSound();
+            activeQuizType = type;
+            quizIndex = 0;
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const containerId = `quiz-options-${activeQuizType}`;
+            const questionId = `quiz-question-${activeQuizType}`;
+            
+            const container = document.getElementById(containerId);
+            const questionText = document.getElementById(questionId);
+            const data = quizzes[activeQuizType][quizIndex];
+            
+            let html = "";
+            if(activeQuizType === 'Сүрөт-суроо' && data.img) {
+                html += `<img src="${data.img}" class="tab-right-image mx-auto mb-4">`;
+            }
+            
+            questionText.innerText = `Суроо ${quizIndex + 1}: ${data.q}`;
+            html += data.a.map((opt, i) => 
+                `<div class="quiz-option" onclick="checkAnswer(${i})">${opt}</div>`
+            ).join('');
+            
+            container.innerHTML = html;
+        }
+
+        function checkAnswer(i) {
+            const options = document.querySelectorAll('.quiz-option');
+            const data = quizzes[activeQuizType][quizIndex];
+            
+            if (i === data.c) {
+                options[i].classList.add('correct');
+                setTimeout(() => {
+                    quizIndex++;
+                    if (quizIndex < 5) showQuestion();
+                    else {
+                        const targetId = `game-area-${activeQuizType}`;
+                        document.getElementById(targetId).innerHTML = `
+                            <div class='text-center p-10'>
+                                <div class="text-5xl mb-4">🏆</div>
+                                <h3 class="text-2xl font-bold text-sepia">Азаматсыз!</h3>
+                                <p class="text-gray-600 mt-2">Бардык 5 суроого жооп бердиңиз.</p>
+                                <div class="close-btn" onclick="hideSection()">Жабуу</div>
+                            </div>`;
+                    }
+                }, 800);
+            } else {
+                options[i].classList.add('wrong');
+                setTimeout(() => options[i].classList.remove('wrong'), 500);
+            }
+        }
+
+        function showSection(key) {
+            playClickSound();
+            currentSection = key;
+            const data = contentData[key];
+            const overlay = document.getElementById('overlay');
+            
+            document.getElementById('overlay-title').innerText = data.title;
+            document.getElementById('overlay-quote').innerText = data.quote;
+            document.getElementById('sidebar-img').src = data.sidebar;
+            
+            const tabContainer = document.getElementById('overlay-tabs');
+            tabContainer.innerHTML = data.categories.map((cat, i) => 
+                `<div class="category-tab ${i===0?'active':''}" onclick="changeTab('${cat}', this)">${cat}</div>`
+            ).join('');
+
+            changeTab(data.categories[0], tabContainer.firstChild);
+            
+            overlay.style.display = 'block';
+            setTimeout(() => overlay.classList.add('active'), 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function changeTab(cat, el) {
+            playClickSound();
+            currentTab = cat;
+            document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+            if(el) el.classList.add('active');
+            
+            const subNav = document.getElementById('sub-nav-container');
+            const tabContent = document.getElementById('tab-content');
+            const data = contentData[currentSection];
+
+            tabContent.classList.remove('tab-transition');
+            void tabContent.offsetWidth; 
+            tabContent.classList.add('tab-transition');
+
+            const qText = tabQuotes[cat] || "Билим — түгөнбөс кенч.";
+            const quoteHtml = `<div class="section-quote-box">“${qText}”</div>`;
+
+            const rightImgUrl = `you1.jpg`;
+            const rightImgHtml = `<img src="${rightImgUrl}" class="tab-right-image lg:float-right lg:ml-6 lg:w-1/3" alt="Tab Image" onerror="this.src='https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=400'">`;
+
+            const closeBtnHtml = `<div class="text-center mt-10"><div class="close-btn" onclick="hideSection()">Жабуу</div></div>`;
+
+            if (currentSection === 'lessons') {
+                subNav.classList.remove('hidden');
+                updateSubNav('Иштелме');
+            } else if (currentSection === 'case' && (cat === 'Көрсөтмө куралдар' || cat === 'Санариптик кошумча')) {
+                subNav.classList.remove('hidden');
+                updateCaseSubNav(data.subCategories[cat][0]);
+            } else {
+                subNav.classList.add('hidden');
+                let bodyContent = data.body[cat] || '<p>Маалымат даярдалууда...</p>';
+                
+                if (currentSection === 'game') {
+                    tabContent.innerHTML = quoteHtml + bodyContent + closeBtnHtml;
+                } else {
+                    tabContent.innerHTML = rightImgHtml + quoteHtml + bodyContent + closeBtnHtml;
+                }
+            }
+        }
+
+        function updateCaseSubNav(subCat) {
+            playClickSound();
+            const data = contentData['case'];
+            const subNav = document.getElementById('sub-nav-container');
+            subNav.innerHTML = data.subCategories[currentTab].map(sc => 
+                `<div class="sub-nav-btn ${sc === subCat ? 'active' : ''}" onclick="updateCaseSubNav('${sc}')">${sc}</div>`
+            ).join('');
+
+            const rightImgHtml = `<img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=400" class="tab-right-image lg:float-right lg:ml-6 lg:w-1/3">`;
+            const quoteHtml = `<div class="section-quote-box">“Мугалимдин чеберчилиги — бул анын изденүүсүндө.”</div>`;
+            const closeBtnHtml = `<div class="text-center mt-10"><div class="close-btn" onclick="hideSection()">Жабуу</div></div>`;
+
+            let content = rightImgHtml + quoteHtml + `<h4 class="font-bold text-sepia mb-4 text-xl">${currentTab} — ${subCat}</h4>`;
+            content += `<div class="info-block">Бул бөлүмдө тарых сабагы үчүн керектүү методикалык материалдар камтылган.</div>`;
+            content += `<div class="space-y-4">${generateYoutube(currentTab + " видео")}${generateGallery(6)}</div>`;
+            content += closeBtnHtml;
+            document.getElementById('tab-content').innerHTML = content;
+        }
+
+        function updateSubNav(subCat) {
+            playClickSound();
+            const data = contentData['lessons'];
+            const subNav = document.getElementById('sub-nav-container');
+            subNav.innerHTML = data.subCategories.map(sc => 
+                `<div class="sub-nav-btn ${sc === subCat ? 'active' : ''}" onclick="updateSubNav('${sc}')">${sc}</div>`
+            ).join('');
+
+            const rightImgHtml = `<img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=400" class="tab-right-image lg:float-right lg:ml-6 lg:w-1/3">`;
+            const quoteHtml = `<div class="section-quote-box">“Бүгүнкү сабак — эртеңки ийгиликтин пайдубалы.”</div>`;
+            const closeBtnHtml = `<div class="text-center mt-10"><div class="close-btn" onclick="hideSection()">Жабуу</div></div>`;
+
+            let content = rightImgHtml + quoteHtml + `<h4 class="font-bold text-sepia mb-4 text-xl">${currentTab} — ${subCat}</h4>`;
+            content += `<div class="info-block">${currentTab} бөлүмүнүн "${subCat}" маалыматы.</div>`;
+            
+            if (subCat === 'Сүрөттөр') content += generateGallery(15);
+            else if (subCat === 'Презентация') content += `<div class="p-8 border-2 border-dashed rounded-xl text-center text-gray-400">Презентация файлы</div>`;
+            
+            content += generateYoutube(`${currentTab} видеосу`);
+            content += closeBtnHtml;
+            document.getElementById('tab-content').innerHTML = content;
+        }
+
+        function hideSection() {
+            playClickSound();
+            const overlay = document.getElementById('overlay');
+            overlay.classList.remove('active');
+            setTimeout(() => { overlay.style.display = 'none'; }, 500);
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+  <div id="imageModal" class="modal" onclick="closeModal()">
+  <img id="modalImg">
+</div>
+</body>
+</html>
