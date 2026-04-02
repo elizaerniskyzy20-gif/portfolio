@@ -625,13 +625,51 @@
                 sidebar: "b.jpg",
                 categories: ["Өмүр баян", "Билими", "Үй бүлө", "Иш тажрыйба", "Башка"],
                 body: {
-                   "Өмүр баян": `
-<div class="info-block fade-in" style="font-family: 'Playfair Display'; font-size:16px; line-height:1.7;">
-Мен, Эрнис кызы Элиза, тарых мугалими катары эмгектенем. 
-Окуучуларга тарыхты үйрөтүү менен бирге, аларды мекенчилдикке тарбиялоо — менин негизги максатым.
+                  "Өмүр баян": `
+<div style="display:flex; gap:30px; align-items:flex-start; flex-wrap:wrap;">
 
-Сабактарымды кызыктуу жана заманбап усулдар менен өткөрүүгө аракет кылам.
+  <!-- СОЛ ЖАК ТЕКСТ -->
+  <div style="flex:1; min-width:250px;">
+
+    <div class="info-block" style="font-size:16px; line-height:1.8; font-family:'Playfair Display';">
+      <h3 style="font-size:22px; font-weight:bold; margin-bottom:10px;">Мен жөнүндө</h3>
+
+      Мен, Эрнис кызы Элиза, тарых мугалими катары эмгектенем.  
+      Окуучуларга тарыхты үйрөтүү менен бирге, аларды мекенчилдикке тарбиялоо — менин негизги максатым.  
+
+      Сабактарымды заманбап технологияларды колдонуу менен кызыктуу өткөрүүгө аракет кылам.
+    </div>
+
+    <!-- КОШУМЧА БЛОК -->
+    <div class="info-block" style="margin-top:15px;">
+      📍 Туулган жылы: 2000-ж.<br>
+      🎓 Билими: Жогорку<br>
+      💼 Кесиби: Тарых мугалими
+    </div>
+
+  </div>
+
+  <!-- ОҢ ЖАК СҮРӨТ -->
+  <div style="position:relative; width:250px;">
+
+    <!-- ЧОҢ СҮРӨТ -->
+    <img src="sur9.jpg"
+         style="width:100%; height:300px; object-fit:cover; border-radius:15px; box-shadow:0 10px 25px rgba(0,0,0,0.2);">
+
+    <!-- КИЧИНЕ СҮРӨТ -->
+    <img src="b2.jpg"
+         style="width:120px; height:90px; object-fit:cover;
+                position:absolute; bottom:-20px; right:-20px;
+                border-radius:10px; border:4px solid white;">
+  </div>
+
 </div>
+
+<!-- АНИМАЦИЯЛУУ ЦИТАТА -->
+<div style="margin-top:25px; padding:15px; border-left:5px solid gold; font-style:italic; animation:pulse 2s infinite;">
+  “Мугалим — бул келечекти жаратуучу инсан.”
+</div>
+
 ` + generateGallery(12),
                     "Билими": `<div class="info-block">Маалымат жазууга орун...</div>` + generateGallery(9),
                     "Үй бүлө": `<div class="info-block">Маалымат жазууга орун...</div>` + generateGallery(12),
