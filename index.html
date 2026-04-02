@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ky">
 <head>
-    <head>
   <title>Менин сайт</title>
 
   <style>
@@ -24,15 +23,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --gold: #b38728;
-            --sepia: #5e3a1a;
-            --light-bg: #fdfaf5;
-            @keyframes glowText {
+    --gold: #b38728;
+    --sepia: #5e3a1a;
+    --light-bg: #fdfaf5;
+}
+@keyframes glowText {
   0% { opacity: 1; text-shadow: 0 0 5px #b38728; }
   50% { opacity: 0.5; text-shadow: 0 0 20px #b38728; }
   100% { opacity: 1; text-shadow: 0 0 5px #b38728; }
 }
 
+.glow-text {
+  animation: glowText 2s infinite;
+}
 .glow-text {
   animation: glowText 2s infinite;
 }
@@ -384,6 +387,7 @@
   <video width="300" autoplay muted loop playsinline>
     <source src="eliza2.mp4" type="video/mp4">
   </video>
+</div>
                 <div class="w-full max-w-xs">
                     <div class="idea-container shadow-sm">
                         <div class="cloud-container" onclick="makeItRain()">
@@ -650,7 +654,7 @@
     </div>
 
     <!-- КОШУМЧА БЛОК -->
-    <div class="info-block" style="margin-top:15px;">
+    <div class="info-block glow-text" style="margin-top:15px;">
       📍 Мен эрнис кызы Элиза 15-ноябрь 1996-жылы Нарын облусунун Ак -Талаа районундагы Ак-Кыя Көк-Жар айылында  жарык дүйнөгө келгем.Атам Мамытов Эрнис апам Акматжанова Аида.5 бир тууган 3 кыз 2 эркек.Мен үйдүн экинчисимин.1-сентябрь 
       2004-жылы Ак-Кыя айылындагы А.Абдраимов атындагы орто мектебинде 1-класска киргем.2015-жылы жалпы орто билим алып аттестатка ээ болгом.
       2016-жылы Нарын шаарындагы Нарын мамлекеттик Университетинин педагогика факультетине тапшырып 2020-жылы аяктадым.
