@@ -12,11 +12,14 @@
     0% {transform: scale(1);}
     50% {transform: scale(1.2);}
     100% {transform: scale(1);}
-    .gallery-item img {
+}
+.gallery-item img {
   cursor: pointer;
   transition: 0.3s;
 }
-
+.gallery-item img:hover {
+  transform: scale(1.05);
+}
 .gallery-item img:hover {
   transform: scale(1.05);
 }
@@ -42,7 +45,7 @@
   }
   </style>
 
-</head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Эрнис кызы Элиза | Портфолио V4.2</title>
@@ -66,7 +69,6 @@
 .glow-text {
   animation: glowText 2s infinite;
 }
-        }
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: var(--light-bg);
@@ -491,9 +493,6 @@ function startSlider() {
     if(i >= images.length) i = 0;
   }, 3000);
 }
-        
-        }
-
         const bgContainer = document.getElementById('bg-container');
         const icons = ['🏺', '📜', '🏹', '🏯', '⚔️', '🛡️', '👑', '🗿'];
         for(let i=0; i<15; i++) {
@@ -745,10 +744,10 @@ function startSlider() {
 </div>
 
 ` + generateGallery(12),
-                    "Билими": `<div class="info-block">Маалымат жазууга орун...</div>` + generateGallery(9),
-                    "Үй бүлө": `<div class="info-block">Маалымат жазууга орун...</div>` + generateGallery(12),
-                    "Иш тажрыйба": `<div class="info-block">Маалымат жазууга орун...</div>` + generateGallery(9),
-                    "Башка": `<div class="info-block">Маалымат жазууга орун...</div>` + generateGallery(12)
+                    "Билими": `<div class="info-block">Маалымат жазууга орун...</div>` + generateGallery(5),
+                    "Үй бүлө": `<div class="info-block">Маалымат жазууга орун...</div>` + generateGallery(5),
+                    "Иш тажрыйба": `<div class="info-block">Маалымат жазууга орун...</div>` + generateGallery(5),
+                    "Башка": `<div class="info-block">Маалымат жазууга орун...</div>` + generateGallery(5)
                 }
             },
             case: {
@@ -762,7 +761,7 @@ function startSlider() {
                 },
                 body: {
                     "Методикалык тарых": `<div class="info-block">Тарыхты окутуунун усулдары...</div>` + generateGallery(12),
-                    "Колдонмолор": generateGallery(9)
+                    "Колдонмолор": generateGallery(5)
                 }
             },
             lessons: {
@@ -779,11 +778,11 @@ function startSlider() {
                 sidebar: "https://images.unsplash.com/photo-1579975096649-e773152b04cb?q=80&w=800",
                 categories: ["Сыйлыктар", "Конкурс", "Квалификация", "Кошумча окуу", "Курс"],
                 body: {
-                    "Сыйлыктар": `<div class="info-block">Мамлекеттик жана мектеп ичиндеги сыйлыктар.</div>` + generateGallery(9),
-                    "Конкурс": `<div class="info-block">Катышкан конкурстар жана жетишкендиктер.</div>` + generateGallery(12),
-                    "Квалификация": `<div class="info-block">Квалификацияны жогорулатуу документтери.</div>` + generateGallery(6),
-                    "Кошумча окуу": `<div class="info-block">Түркүн багыттагы кошумча билим алуулар.</div>` + generateGallery(9),
-                    "Курс": `<div class="info-block">Атайын методикалык жана санариптик курстар.</div>` + generateGallery(12)
+                    "Сыйлыктар": `<div class="info-block">Мамлекеттик жана мектеп ичиндеги сыйлыктар.</div>` + generateGallery(5),
+                    "Конкурс": `<div class="info-block">Катышкан конкурстар жана жетишкендиктер.</div>` + generateGallery(5),
+                    "Квалификация": `<div class="info-block">Квалификацияны жогорулатуу документтери.</div>` + generateGallery(5),
+                    "Кошумча окуу": `<div class="info-block">Түркүн багыттагы кошумча билим алуулар.</div>` + generateGallery(5),
+                    "Курс": `<div class="info-block">Атайын методикалык жана санариптик курстар.</div>` + generateGallery(5)
                 }
             },
             docs: {
