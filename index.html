@@ -533,7 +533,7 @@ function startSlider() {}
             }
         }
 
-       function generateGallery(prefix, count) {
+      function generateGallery(prefix, count) {
     let html = '<div class="image-grid-2">';
     for(let i=1; i<=count; i++) {
         html += `
@@ -801,7 +801,26 @@ function startSlider() {}
 Жазуу иштери
 Презентациялар жана долбоорлор
 
-Кыскача айтканда, методикалык тарых — тарыхты кантип окутуу керек экенин үйрөткөн система болуп, ал максат, мазмун, усул, форма жана баалоону камтыйт...</div>` + generateGallery(12),
+Кыскача айтканда, методикалык тарых — тарыхты кантип окутуу керек экенин үйрөткөн система болуп, ал максат, мазмун, усул, форма жана баалоону камтыйт...</div>` 
+                      <!-- 📊 ПРЕЗЕНТАЦИЯ -->
+<div class="doc-links">
+  <h3>📂 Материалдар</h3>
+
+  <a href="docs/presentation.pptx" target="_blank" class="doc-btn">
+    📊 Презентация ачуу
+  </a>
+
+  <a href="docs/document.pdf" target="_blank" class="doc-btn">
+    📄 Документ ачуу
+  </a>
+</div>
+
+<div class="image-grid">
+  <img src="images/history1.jpg">
+  <img src="images/history2.jpg">
+  ...
+</div>
+`
                     "Колдонмолор": generateGallery(5)
                 }
             },
