@@ -762,8 +762,8 @@ function startSlider() {}
                     "Көрсөтмө куралдар": ["1-бөлүм", "2-бөлүм", "3-бөлүм", "4-бөлүм", "5-бөлүм"],
                     "Санариптик кошумча": ["1-бөлүм", "2-бөлүм", "3-бөлүм", "4-бөлүм", "5-бөлүм"]
                 },
-                body: {
-                    "Методикалык тарых": `
+              body: {
+  "Методикалык тарых": `
 <div class="info-block">
 Методикалык тарых — бул тарых предметин окутуунун максаттарын, мазмунун, усулдарын жана уюштуруу формаларын изилдейт.
 </div>
@@ -779,15 +779,9 @@ function startSlider() {}
     📄 Документ ачуу
   </a>
 </div>
+` + generateGallery("images/h", 4),
 
-<div class="image-grid">
-  <img src="images/h1.jpg">
-  <img src="images/h2.jpg">
-  <img src="images/h3.jpg">
-  <img src="images/h4.jpg">
-</div>
-`,
-                  "Колдонмолор": `
+  "Колдонмолор": `
 <div class="info-block">
 Бул бөлүмдө тарых сабагында колдонулуучу методикалык материалдар, колдонмолор жана пайдалуу ресурстар камтылган.
 </div>
@@ -803,16 +797,8 @@ function startSlider() {}
     📄 Методикалык колдонмо 2
   </a>
 </div>
-
-<div class="image-grid">
-  <img src="images/ap1.jpg">
-  <img src="images/ap2.jpg">
-  <img src="images/ap3.jpg">
-  <img src="images/ap4.jpg">
-</div>
-`,
-                }
-            },
+` + generateGallery("images/k", 5)
+}
             lessons: {
                 title: "Сабактар",
                 quote: "Билим — түгөнбөс кенч.",
