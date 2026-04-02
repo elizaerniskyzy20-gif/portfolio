@@ -1091,22 +1091,36 @@ function startSlider() {}
             let content = rightImgHtml + quoteHtml + `<h4 classF="font-bold text-sepia mb-4 text-xl">${currentTab} — ${subCat}</h4>`;
             content += `<div class="info-block">${currentTab} бөлүмүнүн "${subCat}" маалыматы.</div>`;
 
-          if (subCat === 'Иштелме') {
-    content += `
-    <div class="https://youtu.be/pTDlfzQOHYs?feature=shared" onclick="window.open('lesson.docx')">
-        📄 Word файлды ачуу
-    </div>`;
-}
+         if (subCat === 'Иштелме') {
 
-else if (subCat === 'Презентация') {
-    content += `
-    <div class="https://youtu.be/pTDlfzQOHYs?feature=shared" onclick="window.open('lesson.pptx')">
-        📊 Презентацияны ачуу
-    </div>`;
-}
+    if (currentTab === 'Ачык сабак') {
+        content += `
+        <div class="youtube-link-box" onclick="window.open('achyk_sabak.docx')">
+            📄 Ачык сабак
+        </div>`;
+    }
 
-else if (subCat === 'Сүрөттөр') {
-    content += generateGallery('lesson', 6);
+    else if (currentTab === 'Тарбиялык саат') {
+        content += `
+        <div class="youtube-link-box" onclick="window.open('tarb.docx')">
+            📄 Тарбиялык саат
+        </div>`;
+    }
+
+    else if (currentTab === 'Көрсөтмөлүү сабак') {
+        content += `
+        <div class="youtube-link-box" onclick="window.open('korsotmo.docx')">
+            📄 Көрсөтмөлүү сабак
+        </div>`;
+    }
+
+    else if (currentTab === 'Кошумча сабактар') {
+        content += `
+        <div class="youtube-link-box" onclick="window.open('koshumcha.docx')">
+            📄 Кошумча сабактар
+        </div>`;
+    }
+
 }
             content += generateYoutube(`${currentTab} видеосу`); 
             content += closeBtnHtml;
