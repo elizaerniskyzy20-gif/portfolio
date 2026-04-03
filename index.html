@@ -471,9 +471,7 @@
     </video>
 
     <!-- СҮРӨТ -->
-    <img id="sidebar-img"
-         src="b.jpg"
-         class="sidebar-image">
+    <div id="sidebar-container"></div>
 
   </div>
 </div>
@@ -1028,7 +1026,36 @@ function startSlider() {}
             
             document.getElementById('overlay-title').innerText = data.title;
             document.getElementById('overlay-quote').innerText = data.quote;
-            document.getElementById('sidebar-img').innerHTML = `
+          const sidebar = document.getElementById('sidebar-container');
+
+if(currentSection === 'about') {
+  sidebar.innerHTML = `
+    <video controls
+      style="
+        width:100%;
+        height:300px;
+        object-fit:contain;
+        border-radius:20px;
+        background:black;
+      ">
+      <source src="vid.mp4" type="video/mp4">
+    </video>
+
+    <img src="b.jpg"
+         style="
+           width:100%;
+           height:300px;
+           object-fit:cover;
+           border-radius:20px;
+           margin-top:10px;
+         ">
+  `;
+} else {
+  sidebar.innerHTML = `
+    <img src="${data.sidebar}" class="sidebar-image">
+  `;
+}`
+            
   <video autoplay muted loop playsinline class="sidebar-image">
     <source src="vid.mp4" type="video/mp4">
   </video>
