@@ -455,25 +455,26 @@
                 </div>
 
                 <div class="hidden lg:block">
-                    <div style="display:flex; flex-direction:column; gap:15px;">
+                    <div class="hidden lg:block">
+  <div style="display:flex; flex-direction:column; gap:15px;">
 
-  <!-- ВИДЕО (1-САП) -->
-  <video autoplay muted loop playsinline
-    style="
-      width:100%;
-      height:250px;
-      object-fit:cover;
-      border-radius:20px;
-      border:6px solid white;
-      box-shadow:0 10px 25px rgba(0,0,0,0.15);
-    ">
-    <source src="vid.mp4" type="video/mp4">
-  </video>
+    <!-- ВИДЕО -->
+    <video autoplay muted loop playsinline
+      style="
+        width:100%;
+        height:250px;
+        object-fit:cover;
+        border-radius:20px;
+        border:6px solid white;
+        box-shadow:0 10px 25px rgba(0,0,0,0.15);
+      ">
+      <source src="vid.mp4" type="video/mp4">
+    </video>
 
-  <!-- СҮРӨТ (2-САП) -->
-  <img src="b.jpg"
-       class="sidebar-image">
+    <!-- СҮРӨТ (ID МУРУНКУДАЙ КАЛАТ!) -->
+    <img id="sidebar-img" src="b.jpg" class="sidebar-image">
 
+  </div>
 </div>
                 </div>
             </div>
@@ -1025,7 +1026,13 @@ function startSlider() {}
             
             document.getElementById('overlay-title').innerText = data.title;
             document.getElementById('overlay-quote').innerText = data.quote;
-            document.getElementById('sidebar-img').src = data.sidebar;
+            document.getElementById('sidebar-img').innerHTML = `
+  <video autoplay muted loop playsinline class="sidebar-image">
+    <source src="vid.mp4" type="video/mp4">
+  </video>
+
+  <img src="${data.sidebar}" class="sidebar-image">
+`;
             
             const tabContainer = document.getElementById('overlay-tabs');
             tabContainer.innerHTML = data.categories.map((cat, i) => 
