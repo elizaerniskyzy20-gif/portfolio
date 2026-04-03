@@ -456,25 +456,30 @@
 
                 <div class="hidden lg:block">
                     <div class="hidden lg:block">
-  <div style="display:flex; flex-direction:column; gap:15px;">
+<div class="hidden lg:block" style="position:relative; height:500px;">
 
-    <!-- ВИДЕО -->
-    <video autoplay muted loop playsinline
-      style="
-        width:100%;
-        height:250px;
-        object-fit:cover;
-        border-radius:20px;
-        border:6px solid white;
-        box-shadow:0 10px 25px rgba(0,0,0,0.15);
-      ">
-      <source src="vid.mp4" type="video/mp4">
-    </video>
+  <!-- ВИДЕО (ҮН МЕНЕН) -->
+  <video controls
+    style="
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      border-radius:20px;
+      z-index:1;
+    ">
+    <source src="vid.mp4" type="video/mp4">
+  </video>
 
-    <!-- СҮРӨТ (ID МУРУНКУДАЙ КАЛАТ!) -->
-    <img id="sidebar-img" src="b.jpg" class="sidebar-image">
+  <!-- СҮРӨТ -->
+  <img id="sidebar-img"
+       src="b.jpg"
+       class="sidebar-image"
+       style="position:relative; z-index:2; opacity:0.9;">
 
-  </div>
+</div>
 </div>
                 </div>
             </div>
