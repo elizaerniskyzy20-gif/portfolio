@@ -1056,12 +1056,6 @@ if(currentSection === 'about') {
   `;
 }`
             
-  <video autoplay muted loop playsinline class="sidebar-image">
-    <source src="vid.mp4" type="video/mp4">
-  </video>
-
-  <img src="${data.sidebar}" class="sidebar-image">
-`;
             
             const tabContainer = document.getElementById('overlay-tabs');
             tabContainer.innerHTML = data.categories.map((cat, i) => 
