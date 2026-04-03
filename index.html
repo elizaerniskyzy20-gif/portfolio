@@ -482,6 +482,16 @@
     </div>
 
     <script>
+      const quizzes = {
+    "Викторина": [
+        { q: "Кыргызстандын борбору кайсы?", a: ["Бишкек", "Ош", "Нарын"], c: 0 },
+        { q: "Манас ким?", a: ["Баатыр", "Акын", "Хан"], c: 0 },
+        { q: "Кыргызстан качан эгемендүү болгон?", a: ["1991", "1990", "1992"], c: 0 },
+        { q: "Ак калпак эмненин символу?", a: ["Аруулук", "Байлык", "Күч"], c: 0 },
+        { q: "Кыргыз акчасы?", a: ["Сом", "Теңге", "Рубль"], c: 0 }
+    ]
+};
+
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         function playClickSound() {
             const oscillator = audioCtx.createOscillator();
