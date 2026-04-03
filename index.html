@@ -455,7 +455,26 @@
                 </div>
 
                 <div class="hidden lg:block">
-                    <img id="sidebar-img" src="b.jpg" class="sidebar-image" alt="Бөлүм сүрөтү">
+                    <div style="display:flex; flex-direction:column; gap:15px;">
+
+  <!-- ВИДЕО (1-САП) -->
+  <video autoplay muted loop playsinline
+    style="
+      width:100%;
+      height:250px;
+      object-fit:cover;
+      border-radius:20px;
+      border:6px solid white;
+      box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    ">
+    <source src="vid.mp4" type="video/mp4">
+  </video>
+
+  <!-- СҮРӨТ (2-САП) -->
+  <img src="b.jpg"
+       class="sidebar-image">
+
+</div>
                 </div>
             </div>
         </div>
