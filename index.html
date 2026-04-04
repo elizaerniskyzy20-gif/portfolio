@@ -1060,10 +1060,10 @@ game: {
             const data = quizzes[activeQuizType][quizIndex];
             
             let html = "";
-            if(activeQuizType === 'Сүрөт-суроо' && data.img) {
-                html += `<img src="${data.img}" class="tab-right-image mx-auto mb-4">`;
-            }
-            
+          // ушул блокту толугу менен өчүр
+if(activeQuizType === 'Сүрөт-суроо' && data.img) {
+    html += `<img src="${data.img}" class="tab-right-image mx-auto mb-4">`;
+}
             questionText.innerText = `Суроо ${quizIndex + 1}: ${data.q}`;
             html += data.a.map((opt, i) => 
                 `<div class="quiz-option" onclick="checkAnswer(${i})">${opt}</div>`
@@ -1080,10 +1080,10 @@ game: {
                 options[i].classList.add('correct');
                 setTimeout(() => {
                     quizIndex++;
-                    if (quizIndex < 5) showQuestion();
+                    if (quizIndex < quizzes[activeQuizType].length) showQuestion();
                     else {
-                        const targetId = `game-area-${activeQuizType}`;
-                        document.getElementById(targetId).innerHTML = `
+                       const containerId = `quiz-options-${activeQuizType}`;
+document.getElementById(containerId).innerHTML = `
                             <div class='text-center p-10'>
                                 <div class="text-5xl mb-4">🏆</div>
                                 <h3 class="text-2xl font-bold text-sepia">Азаматсыз!</h3>
