@@ -941,13 +941,73 @@ function startSlider() {}
                 quote: "Мыйзам — тартиптин негизи.",
                 sidebar: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=800",
                 categories: ["Закон", "Стандарт", "Сунуш", "Арыз", "Башка"],
-                body: {
-                    "Закон": `<div class="info-block">КР ченемдик-укуктук актылары жана мыйзамдары.</div>` + generateGallery(3),
-                    "Стандарт": `<div class="info-block">Билим берүү стандарттары жана талаптары.</div>` + generateGallery(3),
-                    "Сунуш": `<div class="info-block">Методикалык сунуштар жана көрсөтмөлөр.</div>` + generateGallery(3),
-                    "Арыз": `<div class="info-block">Арыздардын жана билдирүүлөрдүн үлгүлөрү.</div>` + generateGallery(3),
-                    "Башка": `<div class="info-block">Башка кошумча ченемдик документтер.</div>` + generateGallery(6)
-                }
+               body: {
+
+    "Закон": `
+    <div class="info-block">КР мыйзамдары жана укуктук актылар.</div>
+
+    <div class="youtube-link-box" onclick="window.open('zakon.pdf')">
+        📄 PDF файлды ачуу
+    </div>
+
+    <div class="image-grid-2">
+        <img src="zakon1.jpg" onclick="openModal(this.src)">
+        <img src="zakon2.jpg" onclick="openModal(this.src)">
+    </div>
+    `,
+
+    "Стандарт": `
+    <div class="info-block">Билим берүү стандарттары.</div>
+
+    <div class="youtube-link-box" onclick="window.open('standart.pdf')">
+        📄 PDF файлды ачуу
+    </div>
+
+    <div class="image-grid-2">
+        <img src="standart1.jpg" onclick="openModal(this.src)">
+        <img src="standart2.jpg" onclick="openModal(this.src)">
+    </div>
+    `,
+
+    "Сунуш": `
+    <div class="info-block">Методикалык сунуштар.</div>
+
+    <div class="youtube-link-box" onclick="window.open('sunush.pdf')">
+        📄 PDF файлды ачуу
+    </div>
+
+    <div class="image-grid-2">
+        <img src="sunush1.jpg" onclick="openModal(this.src)">
+        <img src="sunush2.jpg" onclick="openModal(this.src)">
+    </div>
+    `,
+
+    "Арыз": `
+    <div class="info-block">Арыз үлгүлөрү.</div>
+
+    <div class="youtube-link-box" onclick="window.open('aryz.pdf')">
+        📄 PDF файлды ачуу
+    </div>
+
+    <div class="image-grid-2">
+        <img src="aryz1.jpg" onclick="openModal(this.src)">
+        <img src="aryz2.jpg" onclick="openModal(this.src)">
+    </div>
+    `,
+
+    "Башка": `
+    <div class="info-block">Башка документтер.</div>
+
+    <div class="youtube-link-box" onclick="window.open('bashka.pdf')">
+        📄 PDF файлды ачуу
+    </div>
+
+    <div class="image-grid-2">
+        <img src="bashka1.jpg" onclick="openModal(this.src)">
+        <img src="bashka2.jpg" onclick="openModal(this.src)">
+    </div>
+    `
+}
             },
             game: {
                 title: "Оюндар",
