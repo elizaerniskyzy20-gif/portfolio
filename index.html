@@ -1149,10 +1149,14 @@ if(currentSection === 'about') {
             if (currentSection === 'lessons') {
                 subNav.classList.remove('hidden');
                 updateSubNav('Иштелме');
-            } else if (currentSection === 'case' && (cat === 'Көрсөтмө куралдар' || cat === 'Санариптик кошумча')) {
-                subNav.classList.remove('hidden');
-                updateCaseSubNav(data.subCategories[cat][0]);
-            } else {
+            } else if (currentSection === 'case') {
+    subNav.classList.add('hidden');
+
+    let bodyContent = data.body[cat] || '<p>Маалымат даярдалууда...</p>';
+
+    tabContent.innerHTML = rightImgHtml + quoteHtml + bodyContent + closeBtnHtml;
+}
+            else {
                 subNav.classList.add('hidden');
                 let bodyContent = data.body[cat] || '<p>Маалымат даярдалууда...</p>';
                 
