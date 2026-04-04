@@ -584,28 +584,34 @@ function startSlider() {}
             "Закон": "Тартип бар жерде, өсүү бар."
         };
 
-       const quizzes = {
-    "quiz": [
-        { q: "Кыргыз Республикасынын герби качан кабыл алынган?", a: ["1994", "1992", "1991"], c: 0 }
-    ],
+      const quizzes = {
 
-    "image": [
-        { q: "Бул ким?", a: ["Курманжан Датка", "Айчүрөк"], c: 0 }
-    ],
+"quiz1": [
+{ q: "Кыргызстан качан эгемендүү болгон?", a: ["1991", "1992", "1993"], c: 0 },
+{ q: "Бишкек мурда кандай аталган?", a: ["Фрунзе", "Ош", "Талас"], c: 0 }
+],
 
-    "terms": [
-        { q: "Диктатура деген эмне?", a: ["Эл бийлиги", "Бир адам бийлиги"], c: 1 }
-    ],
+"quiz2": [
+{ q: "Бул 'Алай ханышасы' ким?", a: ["Курманжан Датка", "Айчүрөк"], c: 0 },
+{ q: "Манас ким?", a: ["Баатыр", "Жазуучу"], c: 0 }
+],
 
-    "time": [
-        { q: "Согуш качан башталган?", a: ["1941", "1945"], c: 0 }
-    ],
+"quiz3": [
+{ q: "Диктатура деген эмне?", a: ["Эл бийлиги", "Бир адам бийлиги"], c: 1 },
+{ q: "Конституция деген эмне?", a: ["Мыйзам", "Китеп"], c: 0 }
+],
 
-    "rebus": [
-        { q: "Т + 🐝 = ?", a: ["Тарых", "Төрт"], c: 0 }
-    ]
+"quiz4": [
+{ q: "Улуу Ата Мекендик согуш качан башталган?", a: ["1941", "1945"], c: 0 },
+{ q: "Экинчи дүйнөлүк согуш качан бүткөн?", a: ["1945", "1946"], c: 0 }
+],
+
+"quiz5": [
+{ q: "Т + 🐝 = ?", a: ["Тарых", "Төрт"], c: 0 },
+{ q: "Бал + А = ?", a: ["Бала", "Бал"], c: 0 }
+]
+
 };
-
         let quizIndex = 0;
         let activeQuizType = "";
 
@@ -986,43 +992,56 @@ function startSlider() {}
     `
 }
             },
-            game: {
-                title: "Оюндар",
-                quote: "Санариптик тарых дүйнөсү!",
-                sidebar: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=800",
-                categories: ["quiz", "image", "terms", "time", "rebus"],
-                body: {
-                   "quiz": `<div id="game-area-quiz" class="text-center">
-<div class="info-block" id="quiz-question-quiz">Даярсызбы?</div>
-<div id="quiz-options-quiz"></div>
-<button onclick="startQuiz('quiz')" class="bg-gold text-white px-8 py-3 rounded-xl">Баштоо</button>
-</div>`,
+game: {
+    title: "Оюндар",
+    quote: "Суроолор дүйнөсү!",
+    sidebar: "iy.jpg",
+    categories: ["quiz1","quiz2","quiz3","quiz4","quiz5"],
 
-"image": `<div id="game-area-image" class="text-center">
-<div class="info-block" id="quiz-question-image">Сүрөттү тап!</div>
-<div id="quiz-options-image"></div>
-<button onclick="startQuiz('image')" class="bg-gold text-white px-8 py-3 rounded-xl">Баштоо</button>
-</div>`,
+    body: {
 
-"terms": `<div id="game-area-terms" class="text-center">
-<div class="info-block" id="quiz-question-terms">Терминдер</div>
-<div id="quiz-options-terms"></div>
-<button onclick="startQuiz('terms')" class="bg-gold text-white px-8 py-3 rounded-xl">Баштоо</button>
-</div>`,
+"quiz1": `
+<div class="text-center">
+<div id="quiz-question-quiz1" class="info-block">Даярсызбы?</div>
+<div id="quiz-options-quiz1"></div>
+<button onclick="startQuiz('quiz1')" class="bg-gold text-white px-6 py-2 rounded">Баштоо</button>
+</div>
+`,
 
-"time": `<div id="game-area-time" class="text-center">
-<div class="info-block" id="quiz-question-time">Хронология</div>
-<div id="quiz-options-time"></div>
-<button onclick="startQuiz('time')" class="bg-gold text-white px-8 py-3 rounded-xl">Баштоо</button>
-</div>`,
+"quiz2": `
+<div class="text-center">
+<div id="quiz-question-quiz2" class="info-block">Даярсызбы?</div>
+<div id="quiz-options-quiz2"></div>
+<button onclick="startQuiz('quiz2')" class="bg-gold text-white px-6 py-2 rounded">Баштоо</button>
+</div>
+`,
 
-"rebus": `<div id="game-area-rebus" class="text-center">
-<div class="info-block" id="quiz-question-rebus">Ребустар</div>
-<div id="quiz-options-rebus"></div>
-<button onclick="startQuiz('rebus')" class="bg-gold text-white px-8 py-3 rounded-xl">Баштоо</button>
-</div>`
-                }
-            }
+"quiz3": `
+<div class="text-center">
+<div id="quiz-question-quiz3" class="info-block">Даярсызбы?</div>
+<div id="quiz-options-quiz3"></div>
+<button onclick="startQuiz('quiz3')" class="bg-gold text-white px-6 py-2 rounded">Баштоо</button>
+</div>
+`,
+
+"quiz4": `
+<div class="text-center">
+<div id="quiz-question-quiz4" class="info-block">Даярсызбы?</div>
+<div id="quiz-options-quiz4"></div>
+<button onclick="startQuiz('quiz4')" class="bg-gold text-white px-6 py-2 rounded">Баштоо</button>
+</div>
+`,
+
+"quiz5": `
+<div class="text-center">
+<div id="quiz-question-quiz5" class="info-block">Даярсызбы?</div>
+<div id="quiz-options-quiz5"></div>
+<button onclick="startQuiz('quiz5')" class="bg-gold text-white px-6 py-2 rounded">Баштоо</button>
+</div>
+`
+
+}
+}
         };
 
         function startQuiz(type) {
