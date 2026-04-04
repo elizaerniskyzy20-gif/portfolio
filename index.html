@@ -584,43 +584,27 @@ function startSlider() {}
             "Закон": "Тартип бар жерде, өсүү бар."
         };
 
-        const quizzes = {
-            "Викторина": [
-                { q: "Кыргыз Республикасынын Мамлекеттик герби качан кабыл алынган?", a: ["1994-ж. 14-январь", "1992-ж. 3-март", "1991-ж. 31-август"], c: 0 },
-                { q: "Барсбек каган кайсы мамлекеттин башкаруучусу болгон?", a: ["Кыргыз кагандыгы", "Түрк кагандыгы", "Уйгур кагандыгы"], c: 0 },
-                { q: "Манас эпосунун 1000 жылдыгы качан белгиленген?", a: ["1995-жылы", "2000-жылы", "1991-жылы"], c: 0 },
-                { q: "Кыргызстандын биринчи президенти ким болгон?", a: ["А. Акаев", "К. Бакиев", "Р. Отунбаева"], c: 0 },
-                { q: "Кыргызстан БУУга качан мүчө болгон?", a: ["1992-ж. 2-март", "1991-ж. 31-август", "1993-ж. 5-май"], c: 0 }
-            ],
-            "Сүрөт-суроо": [
-                { q: "Бул тарыхый инсан 'Алай ханышасы' аталган:", a: ["Курманжан Датка", "Каныкей", "Айчүрөк"], c: 0, img: "https://images.unsplash.com/photo-1580130281216-33b47f05f8c3?q=80&w=300" },
-                { q: "Орто кылымдагы бул мунара Чүй өрөөнүндө жайгашкан:", a: ["Бурана", "Өзгөн мунарасы", "Шах-Фазиль"], c: 0, img: "https://images.unsplash.com/photo-1590076034114-666324884277?q=80&w=300" },
-                { q: "Бул белгилүү жазуучу 'Кылым карытар бир күн' чыгармасын жазган:", a: ["Ч. Айтматов", "Т. Касымбеков", "А. Осмонов"], c: 0, img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=300" },
-                { q: "Бул улуттук баш кийим ак тилектин символу:", a: ["Ак калпак", "Тебетей", "Элечек"], c: 0, img: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=300" },
-                { q: "Бул тарыхый эстелик Талас жергесинде жайгашкан:", a: ["Манас күмбөзү", "Таш-Рабат", "Саймалуу-Таш"], c: 0, img: "https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=300" }
-            ],
-            "Терминдер": [
-                { q: "Бийликтин бир адамдын колунда чектелбестен топтолушу:", a: ["Демократия", "Диктатура", "Республика"], c: 1 },
-                { q: "Тарыхый окуялардын убакыт боюнча тизмеги:", a: ["География", "Хронология", "Археология"], c: 1 },
-                { q: "Мамлекеттин эң жогорку мыйзамы:", a: ["Декларация", "Конституция", "Кодекс"], c: 1 },
-                { q: "Байыркы Грециядагы шаар-мамлекет:", a: ["Полис", "Метрополия", "Колония"], c: 0 },
-                { q: "Калктын санын каттоо:", a: ["Демография", "Перепись", "Мониторинг"], c: 1 }
-            ],
-            "Хронология": [
-                { q: "Улуу Ата Мекендик согуш кайсы жылы башталган?", a: ["1939", "1941", "1945"], c: 1 },
-                { q: "Кыргызстан эгемендүүлүгүн качан жарыялаган?", a: ["1990", "1991", "1992"], c: 1 },
-                { q: "Экинчи дүйнөлүк согуш качан аяктаган?", a: ["1944", "1945", "1946"], c: 1 },
-                { q: "Кыргыз сому качан киргизилген?", a: ["1993", "1994", "1995"], c: 0 },
-                { q: "Октябрь революциясы кайсы жылы болгон?", a: ["1905", "1917", "1924"], c: 1 }
-            ],
-            "Ребустар": [
-                { q: "Т + 🐝 (аары) = ?", a: ["Тарых", "Төрт", "Тарак"], c: 0 },
-                { q: "Кан + Т = ?", a: ["Кант", "Кана", "Канда"], c: 0 },
-                { q: "Бал + А = ?", a: ["Бала", "Балка", "Бал"], c: 0 },
-                { q: "Шаар + К = ?", a: ["Шарк", "Шаар", "Шар"], c: 0 },
-                { q: "Жер + К = ?", a: ["Жерк", "Жер", "Желе"], c: 0 }
-            ]
-        };
+       const quizzes = {
+    "quiz": [
+        { q: "Кыргыз Республикасынын герби качан кабыл алынган?", a: ["1994", "1992", "1991"], c: 0 }
+    ],
+
+    "image": [
+        { q: "Бул ким?", a: ["Курманжан Датка", "Айчүрөк"], c: 0 }
+    ],
+
+    "terms": [
+        { q: "Диктатура деген эмне?", a: ["Эл бийлиги", "Бир адам бийлиги"], c: 1 }
+    ],
+
+    "time": [
+        { q: "Согуш качан башталган?", a: ["1941", "1945"], c: 0 }
+    ],
+
+    "rebus": [
+        { q: "Т + 🐝 = ?", a: ["Тарых", "Төрт"], c: 0 }
+    ]
+};
 
         let quizIndex = 0;
         let activeQuizType = "";
@@ -1006,13 +990,37 @@ function startSlider() {}
                 title: "Оюндар",
                 quote: "Санариптик тарых дүйнөсү!",
                 sidebar: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=800",
-                categories: ["Викторина", "Сүрөт-суроо", "Терминдер", "Хронология", "Ребустар"],
+                categories: ["quiz", "image", "terms", "time", "rebus"],
                 body: {
-                    "Викторина": `<div id="game-area-Викторина" class="text-center"><div class="info-block" id="quiz-question-Викторина">Даярсызбы? Ар бир оюн 5 суроодон турат.</div><div id="quiz-options-Викторина"></div><button onclick="startQuiz('Викторина')" class="bg-gold text-white px-8 py-3 rounded-xl">Баштоо</button></div>`,
-                    "Сүрөт-суроо": `<div id="game-area-Сүрөт-суроо" class="text-center"><div class="info-block" id="quiz-question-Сүрөт-суроо">Сүрөттү көрүп тапкыла!</div><div id="quiz-options-Сүрөт-суроо"></div><button onclick="startQuiz('Сүрөт-суроо')" class="bg-gold text-white px-8 py-3 rounded-xl">Баштоо</button></div>`,
-                    "Терминдер": `<div id="game-area-Терминдер" class="text-center"><div class="info-block" id="quiz-question-Терминдер">Тарыхый терминдерди канчалык билесиз?</div><div id="quiz-options-Терминдер"></div><button onclick="startQuiz('Терминдер')" class="bg-gold text-white px-8 py-3 rounded-xl">Баштоо</button></div>`,
-                    "Хронология": `<div id="game-area-Хронология" class="text-center"><div class="info-block" id="quiz-question-Хронология">Окуялардын даталарын тапкыла.</div><div id="quiz-options-Хронология"></div><button onclick="startQuiz('Хронология')" class="bg-gold text-white px-8 py-3 rounded-xl">Баштоо</button></div>`,
-                    "Ребустар": `<div id="game-area-Ребустар" class="text-center"><div class="info-block" id="quiz-question-Ребустар">Логикалык ребустарды чечиңиз.</div><div id="quiz-options-Ребустар"></div><button onclick="startQuiz('Ребустар')" class="bg-gold text-white px-8 py-3 rounded-xl">Баштоо</button></div>`
+                   "quiz": `<div id="game-area-quiz" class="text-center">
+<div class="info-block" id="quiz-question-quiz">Даярсызбы?</div>
+<div id="quiz-options-quiz"></div>
+<button onclick="startQuiz('quiz')" class="bg-gold text-white px-8 py-3 rounded-xl">Баштоо</button>
+</div>`,
+
+"image": `<div id="game-area-image" class="text-center">
+<div class="info-block" id="quiz-question-image">Сүрөттү тап!</div>
+<div id="quiz-options-image"></div>
+<button onclick="startQuiz('image')" class="bg-gold text-white px-8 py-3 rounded-xl">Баштоо</button>
+</div>`,
+
+"terms": `<div id="game-area-terms" class="text-center">
+<div class="info-block" id="quiz-question-terms">Терминдер</div>
+<div id="quiz-options-terms"></div>
+<button onclick="startQuiz('terms')" class="bg-gold text-white px-8 py-3 rounded-xl">Баштоо</button>
+</div>`,
+
+"time": `<div id="game-area-time" class="text-center">
+<div class="info-block" id="quiz-question-time">Хронология</div>
+<div id="quiz-options-time"></div>
+<button onclick="startQuiz('time')" class="bg-gold text-white px-8 py-3 rounded-xl">Баштоо</button>
+</div>`,
+
+"rebus": `<div id="game-area-rebus" class="text-center">
+<div class="info-block" id="quiz-question-rebus">Ребустар</div>
+<div id="quiz-options-rebus"></div>
+<button onclick="startQuiz('rebus')" class="bg-gold text-white px-8 py-3 rounded-xl">Баштоо</button>
+</div>`
                 }
             }
         };
