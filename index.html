@@ -1043,13 +1043,13 @@ game: {
 }
 }
         };
-
-        function startQuiz(type) {
-            playClickSound();
-            activeQuizType = type;
-            quizIndex = 0;
-            showQuestion();
-        }
+      function startQuiz(type) {
+    playClickSound();
+    activeQuizType = type.trim(); // 🔥 маанилүү
+    quizIndex = 0;
+    showQuestion();
+}
+ 
 
         function showQuestion() {
             const containerId = `quiz-options-${activeQuizType}`;
@@ -1061,9 +1061,6 @@ game: {
             
             let html = "";
           // ушул блокту толугу менен өчүр
-if(activeQuizType === 'Сүрөт-суроо' && data.img) {
-    html += `<img src="${data.img}" class="tab-right-image mx-auto mb-4">`;
-}
             questionText.innerText = `Суроо ${quizIndex + 1}: ${data.q}`;
             html += data.a.map((opt, i) => 
                 `<div class="quiz-option" onclick="checkAnswer(${i})">${opt}</div>`
