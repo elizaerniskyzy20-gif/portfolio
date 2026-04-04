@@ -626,7 +626,11 @@ function startSlider() {}
         `<div class="quiz-option" onclick="checkAnswer(${i})">${opt}</div>`
     ).join('');
 }
-
+function startQuiz(type) {
+    activeQuizType = type;
+    quizIndex = 0;
+    showQuestion();
+  }
         const contentData = {
             vizitka: {
                 title: "Визитка",
