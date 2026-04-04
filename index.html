@@ -614,6 +614,18 @@ function startSlider() {}
 };
         let quizIndex = 0;
         let activeQuizType = "";
+      function showQuestion() {
+    const data = quizzes[activeQuizType][quizIndex];
+
+    const qId = `quiz-question-${activeQuizType}`;
+    const oId = `quiz-options-${activeQuizType}`;
+
+    document.getElementById(qId).innerText = data.q;
+
+    document.getElementById(oId).innerHTML = data.a.map((opt, i) =>
+        `<div class="quiz-option" onclick="checkAnswer(${i})">${opt}</div>`
+    ).join('');
+}
 
         const contentData = {
             vizitka: {
@@ -1043,29 +1055,7 @@ game: {
 }
 }
         };
-      function startQuiz(type) {
-    playClickSound();
-    activeQuizType = type.trim(); // 🔥 маанилүү
-    quizIndex = 0;
-    showQuestion();
-}
- 
-
-        function showQuestion() {
-            const containerId = `quiz-options-${activeQuizType}`;
-            const questionId = `quiz-question-${activeQuizType}`;
-            
-            const container = document.getElementById(containerId);
-            const questionText = document.getElementById(questionId);
-            const data = quizzes[activeQuizType][quizIndex];
-            
-            let html = "";
-          // ушул блокту толугу менен өчүр
-            questionText.innerText = `Суроо ${quizIndex + 1}: ${data.q}`;
-            html += data.a.map((opt, i) => 
-                `<div class="quiz-option" onclick="checkAnswer(${i})">${opt}</div>`
-            ).join('');
-            
+    
             container.innerHTML = html;
         }
 
@@ -1131,10 +1121,7 @@ if(currentSection === 'about') {
   sidebar.innerHTML = `
     <img src="${data.sidebar}" class="sidebar-image">
   `;
-}`
 
-  <img src="${data.sidebar}" class="sidebar-image">
-`;
             
             const tabContainer = document.getElementById('overlay-tabs');
             tabContainer.innerHTML = data.categories.map((cat, i) => 
@@ -1185,10 +1172,15 @@ if(currentSection === 'about') {
                 let bodyContent = data.body[cat] || '<p>Маалымат даярдалууда...</p>';
                 
                 if (currentSection === 'game') {
-                    tabContent.innerHTML = quoteHtml + bodyContent + closeBtnHtml;
-                } else {
-                    tabContent.innerHTML = rightImgHtml + quoteHtml + bodyContent + closeBtnHtml;
-                }
+    tabContent.innerHTML = quoteHtml + bodyContent + closeBtnHtml;
+
+    setTimeout(() => {
+        startQuiz(cat);
+    }, 200);
+
+} else {
+    tabContent.innerHTML = rightImgHtml + quoteHtml + bodyContent + closeBtnHtml;
+}
             }
         }
 
